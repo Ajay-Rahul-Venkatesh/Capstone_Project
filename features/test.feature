@@ -7,11 +7,10 @@ Feature: Lead and Account Management
     And I convert the lead
     Then I should verify the recently converted account with first name "ajay", last name "Rahul", and company "Tiger"
 
-   Scenario: Lead Creation and Conversion by create new account
+  Scenario: Lead Creation and Conversion by create new account
     Given I log in to the application with username "ajayRahul-mal0@force.com" and password "ajayRahul@123"
     When I create a lead with first name "Ajay", last name "Rahul", and company "Tiger"
-     Then I am converting the lead to account successfully by creating new account
-
+    Then I am converting the lead to account successfully by creating new account
 
   Scenario: Account, Contact, and Opportunity Management
     Given I log in to the application with username "ajrahul80-yhef@force.com" and password "Baba@123"
