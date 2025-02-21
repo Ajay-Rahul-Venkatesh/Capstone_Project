@@ -1,0 +1,12 @@
+username=ajrahul80-yhef@force.com
+password=Baba@12
+lead_firstname_value=Aj
+lead_lastname_value=Ra
+lead_companyname_value=Tiger
+contact_firstname_value=Sur
+contact_lastname_value=Vj
+lead_converttitle=Your lead has been converted
+accountsearch=Racing
+new_accountname=Rolw
+new_opportunityname=Dealer
+closedate_value=30/01/2025
