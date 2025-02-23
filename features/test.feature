@@ -1,21 +1,32 @@
 Feature: Lead and Account Management
   To test the creation, conversion, and verification of leads, accounts, contacts, and opportunities.
 
-  Scenario: Lead Creation and Conversion
-    Given I log in to the application with username "ajayRahul-mal0@force.com" and password "ajayRahul@123"
-    When I create a lead with first name "Ajay", last name "Rahul", and company "Tiger"
-    And I convert the lead
-    Then I should verify the recently converted account with first name "ajay", last name "Rahul", and company "Tiger"
+  Scenario Outline: Convert a lead and verify the converted account
+    Given Login with username "<username>" and password "<password>"
+    When Created a lead with "<first_name>", last name "<last_name>", and company "<company>"
+    Then Convert the lead and verify the recently converted account with first name "<first_name>", last name "<last_name>", and company "<company>"
 
-  Scenario: Lead Creation and Conversion by create new account
-    Given I log in to the application with username "ajayRahul-mal0@force.com" and password "ajayRahul@123"
-    When I create a lead with first name "Ajay", last name "Rahul", and company "Tiger"
-    Then I am converting the lead to account successfully by creating new account
+    Examples:
+    | username                      | password          | first_name | last_name | company        |
+    | ajayRahul-mal0@force.com      | ajayRahul@123    | Ajay       | Rahul     | Tiger         |
 
-  Scenario: Account, Contact, and Opportunity Management
-    Given I log in to the application with username "ajrahul80-yhef@force.com" and password "Baba@123"
-    When I create an account with name "ajay"
-    And I create a contact with account name "ajay" and last name "Rahul"
-    And I create an opportunity with account name "ajay" and opportunity name "XYZ"
-    Then I should verify the contact "Rahul" under account "ajay"
-    And I should verify the opportunity "XYZ"
+  Scenario Outline: Lead Creation and Conversion by creating a new account
+    Given Login with username "<username>" and password "<password>"
+    When Created a lead with "<first_name>", last name "<last_name>", and company "<company>"
+    Then Converting the lead to an account successfully by creating a new account
+
+    Examples:
+      | username                      | password       | first_name | last_name | company |
+      | ajayRahul-mal0@force.com      | ajayRahul@123 | Ajay       | Rahul     | Tiger   |
+
+  Scenario Outline: Account, Contact, and Opportunity Management
+    Given Login with username "<username>" and password "<password>"
+    When Create an account "<account_name>"
+    And Create a contact with account name "<account_name>" and last name "<contact_last_name>"
+    And Opportunity named "<opportunity_name>" is created for account "<account_name>"
+    Then Verify contact "<contact_last_name>" should be listed under account "<account_name>"
+    And The opportunity "<opportunity_name>" should be verified
+
+    Examples:
+      | username                    | password  | account_name | contact_last_name | opportunity_name |
+      | ajrahul80-yhef@force.com    | Baba@123 | ajay         | Rahul             | XYZ              |

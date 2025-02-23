@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-
 class Locators:
     username = (By.XPATH, "//div/input[@id='username']")
     password = (By.XPATH, "//input[@id='password']")
@@ -48,8 +47,3 @@ class Locators:
         return contact_or_opportunity
 
     account_name=(By.XPATH,"(//a[@class='slds-truncate']/span/slot/span/slot)[1]")
-    # contact_link=(By.XPATH,"((//records-hoverable-link[@class='slds-grow']//a))[2]")
-    # opportunity_link=(By.XPATH,"((//records-hoverable-link[@class='slds-grow']//a))[3]")
-    # contact_name=(By.XPATH,"//lightning-formatted-name[@slot='primaryField']")
-    # opportunity_name=(By.XPATH,"(//lightning-formatted-text[@slot='primaryField'])[2]")
-
